@@ -71,9 +71,9 @@ class StatisticsController extends Controller
             $response = [
                 'stats' => $this->extractor->extract($stats, self::STAT_LABELS),
             ];
-        } catch (\Throwable $throwable) {
+        } catch(\Throwable $th) {
+            echo $th->getMessage();exit; // TODO: once fix the error need to remove
             http_response_code(500);
-
             $response = ['message' => 'An error occurred'];
         }
 
@@ -89,7 +89,6 @@ class StatisticsController extends Controller
     {
         $month = $params['month'] ?? null;
         $date  = DateTime::createFromFormat('F, Y', $month);
-
         if (false === $date) {
             $date = new DateTime();
         }
