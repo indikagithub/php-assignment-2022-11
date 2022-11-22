@@ -18,12 +18,12 @@ class AveragePostPerUser extends AbstractCalculator
     /**
      * @var int
      */
-    private $totalUserCount = [];
+    public $totalUserCount = [];
 
     /**
      * @var int
      */
-    private $postCount = 0;
+    public $postCount = 0;
 
     /**
      * @param SocialPostTo $postTo
